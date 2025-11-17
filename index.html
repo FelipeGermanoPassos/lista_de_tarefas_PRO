@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas PRO</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📝 Lista de Tarefas PRO</h1>
+      </header>
+
+      <!-- Formulário de Nova Tarefa -->
+      <div class="task-form">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Digite uma nova tarefa..."
+        />
+
+        <div class="task-options">
+          <select id="prioritySelect">
+            <option value="baixa">🟢 Baixa</option>
+            <option value="media" selected>🟡 Média</option>
+            <option value="alta">🔴 Alta</option>
+          </select>
+
+          <input
+            type="text"
+            id="tagInput"
+            placeholder="Tags (separadas por vírgula)"
+          />
+
+          <button id="addTaskBtn">➕ Adicionar</button>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filters">
+        <div class="filter-group">
+          <label>Filtrar por:</label>
+          <button class="filter-btn active" data-filter="todas">Todas</button>
+          <button class="filter-btn" data-filter="pendentes">Pendentes</button>
+          <button class="filter-btn" data-filter="concluidas">
+            Concluídas
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <label>Prioridade:</label>
+          <button class="priority-filter-btn active" data-priority="todas">
+            Todas
+          </button>
+          <button class="priority-filter-btn" data-priority="alta">
+            🔴 Alta
+          </button>
+          <button class="priority-filter-btn" data-priority="media">
+            🟡 Média
+          </button>
+          <button class="priority-filter-btn" data-priority="baixa">
+            🟢 Baixa
+          </button>
+        </div>
+
+        <div class="search-group">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Buscar tarefas..."
+          />
+        </div>
+      </div>
+
+      <!-- Lista de Tarefas -->
+      <div class="tasks-container">
+        <div id="tasksList" class="tasks-list"></div>
+
+        <div class="empty-state" id="emptyState">
+          <p>📋 Nenhuma tarefa por aqui!</p>
+          <p>Adicione uma nova tarefa para começar.</p>
+        </div>
+      </div>
+
+      <!-- Estatísticas -->
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-label">Total:</span>
+          <span class="stat-value" id="totalTasks">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Pendentes:</span>
+          <span class="stat-value" id="pendingTasks">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Concluídas:</span>
+          <span class="stat-value" id="completedTasks">0</span>
+        </div>
+        <div class="stat-item">
+          <button id="clearCompletedBtn" class="clear-btn">
+            🗑️ Limpar Concluídas
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
